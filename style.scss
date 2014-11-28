@@ -1,6 +1,8 @@
 @import "compass";
 
 // Colors
+$toggle-checked-color: green !default;
+$toggle-unchecked-color: red !default;
 // Size
 // Features
 
@@ -43,7 +45,7 @@
 				background-color: #f1f1f1;
 				transition: background 0.4s;
 				width: 38px;
-				background-color: blue;
+				background-color: $toggle-unchecked-color;
 				@include box-shadow(0 0 2px rgba(black, 0.9));
 			}
 			&:after {
@@ -59,7 +61,7 @@
 		&:checked {
 			& + label {
 				&:before {
-					background: red;
+					background: $toggle-checked-color;
 				}
 				&:after {
 					margin-left: 20px;
