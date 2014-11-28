@@ -7,7 +7,12 @@ $toggle-unchecked-color: red !default;
 // Features
 
 .ui-toggle {
-	width: 30px;
+	.label {
+		text-transform: none;
+		display: inline-block;
+		margin-left: 20px;
+		float: left;
+	}
 	input {
 		position: absolute;
 		margin-left: -9999px;
@@ -22,6 +27,7 @@ $toggle-unchecked-color: red !default;
 			width: 34px;
 			height: 16px;
 			background-color: #dddddd;
+			float: left;
 			&.round {
 				border-radius: 100%;
 				&:before {
