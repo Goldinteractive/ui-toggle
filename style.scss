@@ -1,14 +1,16 @@
 @import "compass";
 
 // Colors
-$toggle-checked-color: green !default;
-$toggle-unchecked-color: red !default;
+$toggle-checked-color: #0075a2 !default;
+$toggle-unchecked-color: #999 !default;
 $toggle-border: transparent !default;
 $toggle-bg-color : gray !default;
 // Size
+$toggle-handle-size: 20px !default;
+$toggle-gap: $toggle-handle-size / 10;
 $toggle-width: 40px !default;
-$toggle-height: 20px !default;
-$toggle-handle-size: $toggle-height !default;
+$toggle-height: $toggle-handle-size - $toggle-gap !default;
+
 // Features
 
 .ui-toggle {
@@ -19,7 +21,7 @@ $toggle-handle-size: $toggle-height !default;
 		cursor: pointer;
 	}
 	.ui-toggle-label {
-		margin-left: $toggle-handle-size / 2;
+		margin-left: $toggle-handle-size / 4;
 	}
 	&.round .ui-toggle-handle {
 		border-radius: 100%;
@@ -59,14 +61,20 @@ $toggle-handle-size: $toggle-height !default;
 				transition: background 0.4s;
 				width: $toggle-width;
 				background-color: $toggle-unchecked-color;
+				@include box-shadow(0px 0px 2px rgba(0, 0, 0, 0.9));
 			}
 			&:after {
 				width: $toggle-handle-size;
 				height: $toggle-handle-size;
-				top: 0;
+				top: -$toggle-gap / 2;
 				background-color: white;
-				@include transition(margin 0.3s ease-in-out);
 				@include box-shadow (0 1px 3px rgba(0, 0, 0, 0.5));
+				@include transition(box-shadow 0.2s, transform 0.3s,margin 0.3s ease-in-out);
+			}
+			&:hover, &:focus, &:active {
+				&:after {
+					@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 10px rgba(black, 0.06));
+				}
 			}
 		}
 		&:checked {
@@ -75,7 +83,7 @@ $toggle-handle-size: $toggle-height !default;
 					background: $toggle-checked-color;
 				}
 				&:after {
-					margin-left: 20px;
+					margin-left: $toggle-width - $toggle-handle-size;
 				}
 			}
 		}
