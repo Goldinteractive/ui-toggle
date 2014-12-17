@@ -21,7 +21,7 @@ $toggle-handle-size: $toggle-height !default;
 	.ui-toggle-label {
 		margin-left: $toggle-handle-size / 2;
 	}
-	.round .ui-toggle-handle {
+	&.round .ui-toggle-handle {
 		border-radius: 100%;
 		&:before {
 			border-radius: $toggle-height;
