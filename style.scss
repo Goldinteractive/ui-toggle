@@ -3,69 +3,74 @@
 // Colors
 $toggle-checked-color: green !default;
 $toggle-unchecked-color: red !default;
+$toggle-border: transparent !default;
+$toggle-bg-color : gray !default;
 // Size
+$toggle-width: 40px !default;
+$toggle-height: 20px !default;
+$toggle-handle-size: $toggle-height !default;
 // Features
 
 .ui-toggle {
-	.label {
-		text-transform: none;
+	position: relative;
+	span,label {
 		display: inline-block;
-		margin-left: 20px;
-		float: left;
+		vertical-align: middle;
+		cursor: pointer;
 	}
+	.ui-toggle-label {
+		margin-left: $toggle-handle-size / 2;
+	}
+	.round .ui-toggle-handle {
+		border-radius: 100%;
+		&:before {
+			border-radius: $toggle-height;
+		}
+		&:after {
+			border-radius: 100%;
+		}
+	}
+
 	input {
 		position: absolute;
 		margin-left: -9999px;
 		visibility: hidden;
-		& + label {
-			display: block;
+		& + .ui-toggle-handle {
+			top: 0;
+			left: 0;
 			position: relative;
-			cursor: pointer;
-			outline: none;
-			user-select: none;
-			padding: 0px;
-			width: 34px;
-			height: 16px;
-			background-color: #dddddd;
-			float: left;
-			&.round {
-				border-radius: 100%;
-				&:before {
-					border-radius: 14px;
-				}
-				&:after {
-					border-radius: 100%;
-				}
-			}
+			background: $toggle-bg-color;
+			width: $toggle-width;
+			height: $toggle-height;
+			border: $toggle-border;
+
 			&:before,
 			&:after {
 				display: block;
 				position: absolute;
-				top: 1px;
-				left: 1px;
-				bottom: 1px;
+				top: 0;
+				left: 0;
+				bottom: 0;
 				content: "";
 			}
 			&:before {
 				right: 1px;
 				background-color: #f1f1f1;
 				transition: background 0.4s;
-				width: 38px;
+				width: $toggle-width;
 				background-color: $toggle-unchecked-color;
-				@include box-shadow(0 0 2px rgba(black, 0.9));
 			}
 			&:after {
-				width: 19px;
-				height: 19px;
-				top: -2px;
+				width: $toggle-handle-size;
+				height: $toggle-handle-size;
+				top: 0;
 				background-color: white;
-
-				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-				transition: margin 0.4s;
+				@include transition(margin 0.3s ease-in-out);
+				@include box-shadow (0 1px 3px rgba(0, 0, 0, 0.5));
 			}
 		}
 		&:checked {
-			& + label {
+			& + .ui-toggle-handle {
 				&:before {
 					background: $toggle-checked-color;
 				}
