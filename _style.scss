@@ -5,7 +5,7 @@ $toggle-border: transparent !default;
 $toggle-bg-color : gray !default;
 // Size
 $toggle-handle-size: 20px !default;
-$toggle-gap: $toggle-handle-size / 10;
+$toggle-gap: $toggle-handle-size / 10 !default;
 $toggle-width: 40px !default;
 $toggle-height: $toggle-handle-size - $toggle-gap !default;
 
@@ -65,6 +65,7 @@ $toggle-height: $toggle-handle-size - $toggle-gap !default;
 				width: $toggle-handle-size;
 				height: $toggle-handle-size;
 				top: -$toggle-gap / 2;
+				left: -$toggle-gap / 2;
 				background-color: white;
 				@include box-shadow (0 1px 3px rgba(0, 0, 0, 0.5));
 				@include transition(box-shadow 0.2s, transform 0.3s,margin 0.3s ease-in-out);
@@ -81,7 +82,7 @@ $toggle-height: $toggle-handle-size - $toggle-gap !default;
 					background: $toggle-checked-color;
 				}
 				&:after {
-					margin-left: $toggle-width - $toggle-handle-size;
+					margin-left: $toggle-width - $toggle-handle-size + $toggle-gap;
 				}
 			}
 		}
