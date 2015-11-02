@@ -59,7 +59,7 @@ $toggle-height: $toggle-handle-size - $toggle-gap !default;
 				transition: background 0.4s;
 				width: $toggle-width;
 				background-color: $toggle-unchecked-color;
-				@include box-shadow(0px 0px 2px rgba(0, 0, 0, 0.9));
+				box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
 			}
 			&:after {
 				width: $toggle-handle-size;
@@ -67,12 +67,12 @@ $toggle-height: $toggle-handle-size - $toggle-gap !default;
 				top: -$toggle-gap / 2;
 				left: -$toggle-gap / 2;
 				background-color: white;
-				@include box-shadow (0 1px 3px rgba(0, 0, 0, 0.5));
-				@include transition(box-shadow 0.2s, transform 0.3s,margin 0.3s ease-in-out);
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+				transition: box-shadow 0.2s, transform 0.3s,margin 0.3s ease-in-out;
 			}
 			&:hover, &:focus, &:active {
 				&:after {
-					@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 10px rgba(black, 0.06));
+					box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 10px rgba(black, 0.06);
 				}
 			}
 		}
